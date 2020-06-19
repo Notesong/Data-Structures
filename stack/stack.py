@@ -9,17 +9,35 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+
+   Arrays use indexes to find the head to add or remove an item, whereas a linked 
+   list uses the pointers to find it. Arrays also take care of their own lengths
+    so it's not necessary to keep track of them like it is in a stack.
+
 """
+
+import sys
+sys.path.append('../singly_linked_list')
+from singly_linked_list import SinglyLinkedList
+
 class Stack:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = SinglyLinkedList()
 
     def __len__(self):
-        pass
+        return self.size
 
     def push(self, value):
-        pass
+        # add an element to the front of the linked list
+        self.size += 1
+        self.storage.add_to_head(value)
 
     def pop(self):
-        pass
+        # check if empty
+        if self.size == 0:
+            return None
+        # remove the first element in storage
+        self.size -= 1
+        node = self.storage.remove_head()
+        return node
