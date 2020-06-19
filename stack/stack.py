@@ -29,15 +29,17 @@ class Stack:
         return self.size
 
     def push(self, value):
-        # add an element to the front of the linked list
+        # increase the size of the stack by one
         self.size += 1
+        # add an element to the front of the linked list
         self.storage.add_to_head(value)
 
     def pop(self):
         # check if empty
         if self.size == 0:
             return None
-        # remove the first element in storage
+        # decrement the size of the stack by one
         self.size -= 1
+        # remove the first element in storage and return the removed head
         node = self.storage.remove_head()
         return node

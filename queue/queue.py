@@ -28,17 +28,22 @@ class Queue:
         self.storage = SinglyLinkedList()
 
     def __len__(self):
+        # returns the length of the queue
         return self.size
 
     def enqueue(self, value):
-        # add the new value to the tail of our list
+        # increase the size of the queue by one
         self.size += 1
+        # add the new value to the tail of our list
         self.storage.add_to_tail(value)
 
     def dequeue(self):
+        # return 0 if nothing is in the queue
         if self.size == 0:
             return None
-        # remove the value from the head of our list
+        # decrement the size of the queue by one
         self.size -= 1
+        # remove the value from the head of our list and return the value of the
+        # removed head
         value = self.storage.remove_head()
         return value
