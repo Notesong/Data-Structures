@@ -10,32 +10,38 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.bst = BSTNode(5)
 
     def test_insert(self):
+        print(" 1---in test_insert---")
         self.bst.insert(2)
         self.bst.insert(3)
         self.bst.insert(7)
         self.bst.insert(6)
         self.assertEqual(self.bst.left.right.value, 3)
         self.assertEqual(self.bst.right.left.value, 6)
+        print(" ----end test_insert----")
 
     def test_handle_dupe_insert(self):
+        print(" 2---in test_handle_dupe_insert---")
         self.bst2 = BSTNode(1)
         self.bst2.insert(1)
         self.assertEqual(self.bst2.right.value, 1)
+        print(" ----end test_handle_dupe_insert----")
 
     def test_contains(self):
+        print(" 3---in test_contains---")
         self.bst.insert(2)
         self.bst.insert(3)
         self.bst.insert(7)
         self.assertTrue(self.bst.contains(7))
         self.assertFalse(self.bst.contains(8))
+        print(" ----end test_contains----")
 
-    # def test_get_max(self):
-    #     self.assertEqual(self.bst.get_max(), 5)
-    #     self.bst.insert(30)
-    #     self.assertEqual(self.bst.get_max(), 30)
-    #     self.bst.insert(300)
-    #     self.bst.insert(3)
-    #     self.assertEqual(self.bst.get_max(), 300)
+    def test_get_max(self):
+        self.assertEqual(self.bst.get_max(), 5)
+        self.bst.insert(30)
+        self.assertEqual(self.bst.get_max(), 30)
+        self.bst.insert(300)
+        self.bst.insert(3)
+        self.assertEqual(self.bst.get_max(), 300)
 
     # def test_for_each(self):
     #     arr = []
