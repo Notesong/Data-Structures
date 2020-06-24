@@ -10,30 +10,24 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.bst = BSTNode(5)
 
     def test_insert(self):
-        print(" 1---in test_insert---")
         self.bst.insert(2)
         self.bst.insert(3)
         self.bst.insert(7)
         self.bst.insert(6)
         self.assertEqual(self.bst.left.right.value, 3)
         self.assertEqual(self.bst.right.left.value, 6)
-        print(" ----end test_insert----")
 
     def test_handle_dupe_insert(self):
-        print(" 2---in test_handle_dupe_insert---")
         self.bst2 = BSTNode(1)
         self.bst2.insert(1)
         self.assertEqual(self.bst2.right.value, 1)
-        print(" ----end test_handle_dupe_insert----")
 
     def test_contains(self):
-        print(" 3---in test_contains---")
         self.bst.insert(2)
         self.bst.insert(3)
         self.bst.insert(7)
         self.assertTrue(self.bst.contains(7))
         self.assertFalse(self.bst.contains(8))
-        print(" ----end test_contains----")
 
     def test_get_max(self):
         self.assertEqual(self.bst.get_max(), 5)
@@ -43,30 +37,30 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.bst.insert(3)
         self.assertEqual(self.bst.get_max(), 300)
 
-    # def test_for_each(self):
-    #     arr = []
-    #     cb = lambda x: arr.append(x)
+    def test_for_each(self):
+        arr = []
+        def cb(x): return arr.append(x)
 
-    #     v1 = random.randint(1, 101)
-    #     v2 = random.randint(1, 101)
-    #     v3 = random.randint(1, 101)
-    #     v4 = random.randint(1, 101)
-    #     v5 = random.randint(1, 101)
+        v1 = random.randint(1, 101)
+        v2 = random.randint(1, 101)
+        v3 = random.randint(1, 101)
+        v4 = random.randint(1, 101)
+        v5 = random.randint(1, 101)
 
-    #     self.bst.insert(v1)
-    #     self.bst.insert(v2)
-    #     self.bst.insert(v3)
-    #     self.bst.insert(v4)
-    #     self.bst.insert(v5)
+        self.bst.insert(v1)
+        self.bst.insert(v2)
+        self.bst.insert(v3)
+        self.bst.insert(v4)
+        self.bst.insert(v5)
 
-    #     self.bst.for_each(cb)
+        self.bst.for_each(cb)
 
-    #     self.assertTrue(5 in arr)
-    #     self.assertTrue(v1 in arr)
-    #     self.assertTrue(v2 in arr)
-    #     self.assertTrue(v3 in arr)
-    #     self.assertTrue(v4 in arr)
-    #     self.assertTrue(v5 in arr)
+        self.assertTrue(5 in arr)
+        self.assertTrue(v1 in arr)
+        self.assertTrue(v2 in arr)
+        self.assertTrue(v3 in arr)
+        self.assertTrue(v4 in arr)
+        self.assertTrue(v5 in arr)
 
     # def test_print_traversals(self):
     #     # WARNING:  Tests are for Print()

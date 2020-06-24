@@ -19,7 +19,6 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        print("In insert: value: ", value, "self.value: ", self.value)
         if value < self.value:
             if self.left is not None:
                 self.left.insert(value)
@@ -34,7 +33,6 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        print("In contains: target: ", target, "self.value: ", self.value)
         does_contain = False
         if self.value == target:
             does_contain = True
@@ -59,8 +57,13 @@ class BSTNode:
             largest_value = self.right.get_max()
         return largest_value
 
+    # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        if self.right is not None:
+            self.right.for_each(fn)
+        if self.left is not None:
+            self.left.for_each(fn)
+        fn(self.value)
 
     # Part 2 -----------------------
 
