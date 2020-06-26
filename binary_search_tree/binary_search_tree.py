@@ -131,6 +131,7 @@ class BSTNode:
         queue = Queue()
         # add the first node to the queue
         queue.enqueue(node)
+        # while the stack is not empty
         while len(queue) > 0:
             # remove the first node from the queue
             current_node = queue.dequeue()
@@ -164,10 +165,17 @@ class BSTNode:
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
-
     def pre_order_dft(self, node):
-        pass
+        print(node.value)
+        if node.left:
+            self.pre_order_dft(node.left)
+        if node.right:
+            self.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if node.left:
+            self.post_order_dft(node.left)
+        if node.right:
+            self.post_order_dft(node.right)
+        print(node.value)
